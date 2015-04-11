@@ -3,7 +3,7 @@
 @section('content')
 	<h1 class="page-heading">Create New ToDo</h1>
 
-	{!! Form::open(['method' => 'GET', 'action' => 'ToDoController@confirm']) !!}
+	{!! Form::open(['method' => 'GET', 'action' => 'ToDoController@store']) !!}
 
 		<div class="form-group">
 			{!! Form::label('activity', 'Activity:') !!}

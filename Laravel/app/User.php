@@ -31,4 +31,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	/**
+	 * A user may have many todos
+	 * 
+	 * @return HasMany
+	 */
+	public function todos()
+	{
+		return $this->hasMany('App\Todo');
+	}
+
 }

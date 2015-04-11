@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PrepareToDoRequest;
+use App\ToDo;
 
 class ToDoController extends Controller {
 
@@ -43,9 +44,15 @@ class ToDoController extends Controller {
 	 * 
 	 * @return  pages/home
 	 */
-	public function confirm(PrepareToDoRequest $request)
+	public function store(PrepareToDoRequest $request)
 	{
-		return view('pages.home');
+		$data = $request->all();
+
+		$todo = Todo::open($data);
+
+		\Auth::user()->todos()->save($todo);
+
+		return $todo;
 	}
 
 }
