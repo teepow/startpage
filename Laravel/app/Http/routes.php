@@ -5,6 +5,10 @@
  */
 Route::get('/', 'PagesController@home');
 
+/**
+ * ToDos
+ */
+Route::resource('todos', 'ToDoController');
 
 /**
  * Authentication
