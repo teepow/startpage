@@ -8,6 +8,7 @@ Route::get('/', 'PagesController@home');
 /**
  * ToDos
  */
+Route::get('todos/create/confirm', 'ToDoController@confirm');
 Route::resource('todos', 'ToDoController');
 
 /**

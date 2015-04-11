@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PrepareToDoRequest;
 
 class ToDoController extends Controller {
 
@@ -28,11 +29,23 @@ class ToDoController extends Controller {
 	/**
 	 * Show page to create todos
 	 * 
-	 * @return [type] [description]
+	 * @return todos/create
 	 */
 	public function create()
 	{
 		return view('todos.create');
+	}
+
+	/**
+	 * Confirm new ToDo
+	 * 
+	 * @param  PrepareToDoRequest $request 
+	 * 
+	 * @return  pages/home
+	 */
+	public function confirm(PrepareToDoRequest $request)
+	{
+		return view('pages.home');
 	}
 
 }
