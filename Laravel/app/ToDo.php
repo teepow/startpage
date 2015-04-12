@@ -10,8 +10,17 @@ class ToDo extends Model {
 
 	public static function open(array $attributes)
 	{
-		print_r($attributes);
 		return new static($attributes);
 	}
+
+	/**
+	 * ToDo belongs to user
+	 * 
+	 * @return BelongsTo
+	 */
+	 public function user()
+	 {
+	 	return $this->belongsTo('User');
+	 }
 
 }

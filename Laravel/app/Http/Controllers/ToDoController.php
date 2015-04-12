@@ -52,7 +52,7 @@ class ToDoController extends Controller {
 
 		\Auth::user()->todos()->save($todo);
 
-		return $todo;
+		return view('pages.home');
 	}
 
 }
