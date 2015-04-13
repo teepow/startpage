@@ -5,7 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 class ToDo extends Model {
 
 	protected $fillable = [
-		'activity'
+		'activity',
+		'content_removed',
 	];
 
 	public static function open(array $attributes)

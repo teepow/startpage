@@ -1,0 +1,44 @@
+@import 'partials/colors';
+
+.page-heading {
+	&:after {
+		content: '';
+		display: block;
+		width: 70px;
+		height: 3px;
+		background: $underline;
+		margin: 10px auto 0;
+	}
+}
+
+.col-lg-6, .col-lg-3 {
+	height: 1000px;
+	background-color: $background-color;
+	border: 1px solid $home-border;
+	text-align: center;
+	height: 1000px;
+}
+
+.todo-button {
+	margin-top: 20px;
+}
+
+.todo-list-items {
+	margin-top: 10px;
+	text-align: left;
+}
+
+.content-removed-form {
+	float: right;
+}
+
+.todo-list-submit {
+	float: right;
+}
+
+.btn-lg {
+	display: block;
+	width: 100px;
+	margin: 0 auto 20px;
+	background-color: $button-color;
+}

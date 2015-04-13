@@ -9,7 +9,9 @@ Route::get('/', 'PagesController@home');
  * ToDos
  */
 Route::get('todos/create/confirm', 'ToDoController@confirm');
-Route::resource('todos', 'ToDoController');
+Route::get('todos/create', 'ToDoController@create');
+Route::post('todos/store', 'ToDoController@store');
+Route::patch('todos/{todos}', 'ToDoController@update');
 
 /**
  * Authentication

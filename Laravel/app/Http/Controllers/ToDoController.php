@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PrepareToDoRequest;
@@ -52,7 +53,17 @@ class ToDoController extends Controller {
 
 		\Auth::user()->todos()->save($todo);
 
-		return view('pages.home');
+		return Redirect('/');
+	}
+
+	public function update($todoId, Request $request)
+	{
+		$isRemoved = $request->has('content_removed');
+
+		ToDo::findOrFail($todoId)
+			->update(['content_removed' => $isRemoved]);
+
+		//return redirect()->back();
 	}
 
 }
