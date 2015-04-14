@@ -20,6 +20,11 @@
 </div>
 <div class="col-lg-6">
 	<h1 class="page-heading home-heading">Content</h1>
+	<blockquote>
+		@foreach($fortune as $line)
+			{!! $line . '<br>' !!}
+		@endforeach
+	</blockquote>
 </div>
 <div class="col-lg-3">
 	<h1 class="page-heading home-heading">Content</h1>

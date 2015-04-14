@@ -56,6 +56,13 @@ class ToDoController extends Controller {
 		return Redirect('/');
 	}
 
+	/**
+	 * Update content_removed field
+	 * 
+	 * @param  string  $todoId  
+	 * 
+	 * @param  Request $request 
+	 */
 	public function update($todoId, Request $request)
 	{
 		$isRemoved = $request->has('content_removed');

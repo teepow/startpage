@@ -20,3 +20,8 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+/**
+ * Photos
+ */
+Route::get('photos/create', 'PhotosController@create');
