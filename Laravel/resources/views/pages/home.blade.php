@@ -1,6 +1,15 @@
 @extends('app')
 
 @section('content')
+
+@if($images->first())
+	<ul class="list-inline">
+		@foreach($images as $image)
+			<li class="col-lg-4">{!! HTML::image("$image->image") !!}</li>
+		@endforeach
+	</ul>
+@endif
+
 <div class="col-lg-3">	
 	<h1 class="page-heading home-heading">Todo List</h1>
 	@if($todos->first())
@@ -18,6 +27,7 @@
 	 @endif
 	 <a href="/todos/create" class="btn btn-default btn-lg todo-button">Add</a>
 </div>
+
 <div class="col-lg-6">
 	<h1 class="page-heading home-heading">Content</h1>
 	<blockquote>
@@ -26,6 +36,7 @@
 		@endforeach
 	</blockquote>
 </div>
+
 <div class="col-lg-3">
 	<h1 class="page-heading home-heading">Content</h1>
 </div>

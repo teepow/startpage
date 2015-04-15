@@ -8,4 +8,14 @@ class Photo extends Model {
 		'image'
 	];
 
+	/**
+	 * Photo belongs to user
+	 * 
+	 * @return BelongsTo
+	 */
+	 public function user()
+	 {
+	 	return $this->belongsTo('User');
+	 }
+
 }

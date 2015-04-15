@@ -41,4 +41,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->hasMany('App\ToDo');
 	}
 
+	/**
+	 * A user may have many photos
+	 * 
+	 * @return HasMany
+	 */
+	public function photos()
+	{
+		return $this->hasMany('App\Photo');
+	}
 }

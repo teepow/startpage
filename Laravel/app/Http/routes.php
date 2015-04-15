@@ -13,6 +13,13 @@ Route::get('todos/create', 'ToDoController@create');
 Route::post('todos/store', 'ToDoController@store');
 Route::patch('todos/{todos}', 'ToDoController@update');
 
+
+/**
+ * Photos
+ */
+Route::get('photos/edit', 'PhotosController@edit');
+Route::post('photos/store', 'PhotosController@store');
+
 /**
  * Authentication
  */
@@ -21,7 +28,10 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-/**
- * Photos
- */
-Route::get('photos/create', 'PhotosController@create');
+
+
+
+
+Route::get('/info', function() {
+	phpinfo();
+} );

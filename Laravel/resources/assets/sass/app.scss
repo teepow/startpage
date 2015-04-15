@@ -1,6 +1,8 @@
 @import 'partials/colors';
 
 .page-heading {
+	text-align: center;
+	
 	&:after {
 		content: '';
 		display: block;

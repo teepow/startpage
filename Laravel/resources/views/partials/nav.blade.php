@@ -14,6 +14,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="{{ url('/') }}">Home</a></li>
 				<li><a href="{{ url('/todos/create') }}">New Todo</a></li>
+				<li><a href="{{ url('/photos/edit') }}">Edit Photos</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">

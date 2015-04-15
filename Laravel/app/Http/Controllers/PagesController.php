@@ -12,13 +12,16 @@ class PagesController extends Controller {
 
 	public function home()
 	{
-		exec("/usr/games/fortune", $fortune);
 
 		if(Auth::check())
 		{
+			exec("/usr/games/fortune", $fortune);
+
 			$todos = \Auth::user()->todos->where('content_removed', 0);
 
-			return view('pages.home', compact('todos', 'fortune'));
+			$images = \Auth::user()->photos;
+
+			return view('pages.home', compact('todos', 'fortune', 'images'));
 		}
 		return view('auth.login');
 	}

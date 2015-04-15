@@ -39,7 +39,7 @@ class ToDoController extends Controller {
 	}
 
 	/**
-	 * Confirm new ToDo
+	 * Store new ToDo
 	 * 
 	 * @param  PrepareToDoRequest $request 
 	 * 
