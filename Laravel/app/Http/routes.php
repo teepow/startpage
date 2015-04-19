@@ -19,6 +19,7 @@ Route::patch('todos/{todos}', 'ToDoController@update');
  */
 Route::get('photos/edit', 'PhotosController@edit');
 Route::post('photos/store', 'PhotosController@store');
+Route::patch('photos/{photos}', 'PhotosController@update');
 
 /**
  * Authentication

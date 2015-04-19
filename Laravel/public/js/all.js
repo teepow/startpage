@@ -12,9 +12,6 @@
 		e.preventDefault();
 	};
 
-
-	//$('form[data-remote]').on('submit', submitAjaxRequest);
-
-	$('*[data-click-submits-form').on('change', submitAjaxRequest)
+	$('*[data-click-submits-form').on('change', submitAjaxRequest);
 })();
 //# sourceMappingURL=all.js.map

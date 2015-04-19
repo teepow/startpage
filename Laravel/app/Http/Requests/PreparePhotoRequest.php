@@ -3,7 +3,7 @@
 use App\Http\Requests\Request;
 
 class PreparePhotoRequest extends Request {
-
+	
 	/**
 	 * Determine if the user is authorized to make this request.
 	 *

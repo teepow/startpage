@@ -2,15 +2,9 @@
 
 @section('content')
 
-@if($images->first())
-	<ul class="list-inline">
-		@foreach($images as $image)
-			<li class="col-lg-4">{!! HTML::image("$image->image") !!}</li>
-		@endforeach
-	</ul>
-@endif
+@include('partials.images')
 
-<div class="col-lg-3">	
+<div class="col-lg-3 home-content">	
 	<h1 class="page-heading home-heading">Todo List</h1>
 	@if($todos->first())
 		<ul class="list-group">
@@ -28,7 +22,7 @@
 	 <a href="/todos/create" class="btn btn-default btn-lg todo-button">Add</a>
 </div>
 
-<div class="col-lg-6">
+<div class="col-lg-6 home-content">
 	<h1 class="page-heading home-heading">Content</h1>
 	<blockquote>
 		@foreach($fortune as $line)
@@ -37,7 +31,7 @@
 	</blockquote>
 </div>
 
-<div class="col-lg-3">
+<div class="col-lg-3 home-content">
 	<h1 class="page-heading home-heading">Content</h1>
 </div>
 @stop

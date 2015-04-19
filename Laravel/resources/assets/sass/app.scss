@@ -13,13 +13,21 @@
 	}
 }
 
-.col-lg-6, .col-lg-3 {
+.home-content {
 	height: 1000px;
 	background-color: $background-color;
 	border: 1px solid $home-border;
 	text-align: center;
 	height: 1000px;
 }
+
+.list-inline {
+	text-align: center;
+}
+
+// .edit-photos-list-items {
+// 	float: right;
+// }
 
 .todo-button {
 	margin-top: 20px;
