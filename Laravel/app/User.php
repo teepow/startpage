@@ -50,4 +50,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 		return $this->hasMany('App\Photo');
 	}
+
+	/**
+	 * A user may have one quote
+	 * 
+	 * @return HasOne
+	 */
+	public function quotes()
+	{
+		return $this->hasOne('App\Quote');
+	}
 }

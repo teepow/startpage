@@ -25,8 +25,11 @@
 <div class="col-lg-6 home-content">
 	<h1 class="page-heading home-heading">Content</h1>
 	<blockquote>
-		@foreach($fortune as $line)
+		@foreach($quote as $line)
 			{!! $line . '<br>' !!}
+			@if($author)
+				<cite>{{ '-' . $author }}</cite>
+			@endif
 		@endforeach
 	</blockquote>
 </div>

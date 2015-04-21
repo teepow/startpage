@@ -13,13 +13,18 @@ Route::get('todos/create', 'ToDoController@create');
 Route::post('todos/store', 'ToDoController@store');
 Route::patch('todos/{todos}', 'ToDoController@update');
 
-
 /**
  * Photos
  */
 Route::get('photos/edit', 'PhotosController@edit');
 Route::post('photos/store', 'PhotosController@store');
 Route::patch('photos/{photos}', 'PhotosController@update');
+
+/**
+ * Quotes
+ */
+Route::get('quotes/edit', 'QuotesController@edit');
+Route::post('quotes/store', 'QuotesController@store');
 
 /**
  * Authentication

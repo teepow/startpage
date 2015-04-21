@@ -63,24 +63,6 @@ class PhotosController extends Controller {
 	}
 
 	/**
-	 * Resize image to 200 x 200
-	 * 
-	 * @param  request 
-	 * 
-	 * @return file
-	 */
-	public function resizeImage($request)
-	{
-		$file = $request->file('file');
-
-		$file = Image::make(file_get_contents($file));
-
-		$file->resize(200, 200);
-
-		return $file;
-	}
-
-	/**
 	 * Remove file from disk and record from DB
 	 * 
 	 * @param  $photoId 
@@ -98,6 +80,24 @@ class PhotosController extends Controller {
 		DB::table('photos')->delete($photoId);
 
 		return Redirect::back();
+	}
+
+	/**
+	 * Resize image to 200 x 200
+	 * 
+	 * @param  request 
+	 * 
+	 * @return file
+	 */
+	public function resizeImage($request)
+	{
+		$file = $request->file('file');
+
+		$file = Image::make(file_get_contents($file));
+
+		$file->resize(200, 200);
+
+		return $file;
 	}
 
 }

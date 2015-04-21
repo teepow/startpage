@@ -19,16 +19,6 @@ class ToDoController extends Controller {
 	}
 
 	/**
-	 * Show all todos
-	 * 
-	 * @return [type] [description]
-	 */
-	public function index()
-	{
-		return 'all todos';
-	}
-
-	/**
 	 * Show page to create todos
 	 * 
 	 * @return todos/create
