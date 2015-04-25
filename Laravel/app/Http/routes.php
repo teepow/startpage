@@ -41,3 +41,12 @@ Route::controllers([
 Route::get('/info', function() {
 	phpinfo();
 } );
+
+Route::get('/testing', function() {
+	if (Auth::check())
+		return 'Welcome back, ' . Auth::user()->username;
+
+	return 'Hi guest' . link_to('testingTwo', 'Login With Github');
+});
+
+Route::get('testingTwo', 'Auth\AuthController@testingLogin');

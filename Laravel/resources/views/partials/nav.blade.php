@@ -7,7 +7,6 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Laravel</a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -15,6 +14,7 @@
 				<li><a href="{{ url('/') }}">Home</a></li>
 				<li><a href="{{ url('/todos/create') }}">New Todo</a></li>
 				<li><a href="{{ url('/photos/edit') }}">Edit Photos</a></li>
+				<li><a href="{{ url('/quotes/edit') }}">Edit Quote</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">

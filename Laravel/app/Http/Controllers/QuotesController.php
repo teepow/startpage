@@ -12,6 +12,14 @@ use Illuminate\Http\Request;
 class QuotesController extends Controller {
 
 	/**
+	 * Create new Quote instance and apply middleware for authentication
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
+	/**
 	 * Show page to edit quotes
 	 * 
 	 * @return quotes/edit
