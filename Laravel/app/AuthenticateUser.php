@@ -23,13 +23,20 @@ class AuthenticateUser {
 	{
 		if (!$hasCode) return $this->getAuthorizationFirst();
 
-		$user = $this->socialite->driver('facebook')->user();
+		$user = $this->users->findByUsernameOrCreate($this->getFacebookUser());
 
-		$this->users->findByUsernameOrCreate
+		$this->auth->login($user, true);
+
+		return redirect('/');
 	}
 
 	private function getAuthorizationFirst()
 	{
 		return $this->socialite->driver('facebook')->redirect();
+	}
+
+	private function getFacebookUser()
+	{
+		return $this->socialite->driver('facebook')->user();
 	}
 }

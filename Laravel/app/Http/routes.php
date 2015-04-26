@@ -34,7 +34,10 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-
+/**
+ * Facebook Login
+ */
+Route::get('login/facebook', 'Auth\AuthController@facebookLogin');
 
 
 
@@ -42,11 +45,9 @@ Route::get('/info', function() {
 	phpinfo();
 } );
 
-Route::get('/testing', function() {
-	if (Auth::check())
-		return 'Welcome back, ' . Auth::user()->username;
+// Route::get('/testing', function() {
+// 	if (Auth::check())
+// 		return 'Welcome back, ' . Auth::user()->name;
 
-	return 'Hi guest' . link_to('testingTwo', 'Login With Github');
-});
-
-Route::get('testingTwo', 'Auth\AuthController@testingLogin');
+// 	return 'Hi guest' . link_to('testingTwo', 'Login With Github');
+// });

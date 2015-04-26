@@ -44,7 +44,7 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
-	public function testingLogin(AuthenticateUser $authenticateUser, Request $request)
+	public function facebookLogin(AuthenticateUser $authenticateUser, Request $request)
 	{
 		return $authenticateUser->execute($request->has('code'));
 	}
