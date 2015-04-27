@@ -6,7 +6,6 @@ use Auth;
 use App\ToDo;
 use App\User;
 use Facebook\FacebookSession;
-use Facebook\FacebookRequest;
 use Facebook\FacebookRedirectLoginHelper;
 use Redirect;
 
@@ -14,7 +13,8 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller {
 
-	public function home($graphObject = NULL)
+	
+	public function home()
 	{
 		if(Auth::check())
 		{
@@ -34,47 +34,28 @@ class PagesController extends Controller {
 
 			$images = Auth::user()->photos;
 
-			$loginUrl = ($graphObject) ? NULL : $this->getLogin();
+			$facebooks = (Auth::user()->facebooks->first()) ? Auth::user()->facebooks : 'No Messages to Show';
 
-			return view('pages.home', compact('todos', 'quote', 'images', 'author', 'loginUrl', 'graphObject'));
+			$loginUrl = $this->getLogin();
+
+			return view('pages.home', compact('todos', 'quote', 'images', 'author', 'loginUrl', 'facebooks'));
 		}
 		return view('auth.login');
 	}
 
+	/**
+	 * Get url from Facebook API
+	 * 
+	 * @return String
+	 */
 	public function getLogin()
 	{
 		session_start();
 		FacebookSession::setDefaultApplication(env('FACEBOOK_CLIENT_ID'), env('FACEBOOK_CLIENT_SECRET'));
 		
-		$helper = new FacebookRedirectLoginHelper('http://startpage.app/facebook/confirm');
+		$helper = new FacebookRedirectLoginHelper('http://startpage.app/facebook/update');
 		$loginUrl = $helper->getLoginUrl();
 
-		return $loginUrl;
+		return $loginUrl . 'user_posts';
 	}
-
-	public function facebookConfirm()
-	{
-		session_start();
-		FacebookSession::setDefaultApplication(env('FACEBOOK_CLIENT_ID'), env('FACEBOOK_CLIENT_SECRET'));
-
-		$helper = new FacebookRedirectLoginHelper('http://startpage.app/facebook/confirm');
-
-		// try {
-			$session = $helper->getSessionFromRedirect();
-			$request = new FacebookRequest($session, 'GET', '/me/posts');
-		// } catch(FacebookRequestException $e) {
-		// 	return Redirect::to('/'); 
-		// } catch(\Exception $e) {
-		// 	return Redirect::to('/'); 
-		// }
-		
-		$request = new FacebookRequest($session, 'GET', '/me/posts');
-		$response = $request->execute();
-		$graphObject = $response->getGraphObject();
-		$graphObject = $graphObject->asArray();
-		$graphObject = ($graphObject) ? $graphObject['data'] : 'No Messages to Show';
-
-		return $this->home($graphObject);
-	}
-
 }

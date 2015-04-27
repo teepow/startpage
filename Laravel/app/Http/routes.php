@@ -39,8 +39,10 @@ Route::controllers([
  */
 Route::get('login/facebook', 'Auth\AuthController@facebookLogin');
 
-
-Route::get('facebook/confirm', 'PagesController@facebookConfirm');
+/**
+ * Facebook API
+ */
+Route::get('facebook/update', 'FacebooksController@update');
 
 
 

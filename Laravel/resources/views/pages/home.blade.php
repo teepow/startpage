@@ -36,20 +36,19 @@
 
 <div class="col-lg-3 home-content">
 	<h1 class="page-heading home-heading">Content</h1>
-	@if($loginUrl)
-		<a href="{{ url($loginUrl . 'user_posts') }}">Log In</a>
-	@elseif($graphObject)
-		@if(!is_array($graphObject))
-			<p>{{ $graphObject }}</p>
-		@else
-			<ul class="list-group">
-				@foreach($graphObject as $data)
+	@if(($facebooks))
+		<ul class="list-group">
+			@if(!is_object($facebooks))
+				{!! $facebooks !!}
+			@else
+				@foreach($facebooks as $facebook)
 					<li class="list-group-item">
-						{!! $data->message !!}
+						{!! $facebook->post !!}
 					</li>
 				@endforeach
-			</ul>
-		@endif
+			@endif
+		</ul>
 	@endif
+	<a href="{{ url($loginUrl) }}">Update</a>
 </div>
 @stop
