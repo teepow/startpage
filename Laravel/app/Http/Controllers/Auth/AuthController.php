@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use App\AuthenticateUser;
+use Facebook\FacebookSession;
+use Facebook\FacebookRequest;
+use Facebook\FacebookRedirectLoginHelper;
 
 class AuthController extends Controller {
 
