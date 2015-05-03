@@ -44,8 +44,12 @@ Route::get('login/facebook', 'Auth\AuthController@facebookLogin');
  */
 Route::get('facebook/update', 'FacebooksController@update');
 
-
-
+/**
+ * Favorites
+ */
+Route::get('favorites/edit', 'FavoritesController@edit');
+Route::post('favorites/store', 'FavoritesController@store');
+Route::patch('favorites/{favorites}', 'FavoritesController@update');
 
 
 

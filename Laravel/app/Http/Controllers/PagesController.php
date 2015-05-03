@@ -36,9 +36,11 @@ class PagesController extends Controller {
 
 			$facebooks = (Auth::user()->facebooks->first()) ? Auth::user()->facebooks : 'No Messages to Show';
 
+			$favorites = Auth::user()->favorites;
+
 			$loginUrl = $this->getLogin();
 
-			return view('pages.home', compact('todos', 'quote', 'images', 'author', 'loginUrl', 'facebooks'));
+			return view('pages.home', compact('todos', 'quote', 'images', 'author', 'loginUrl', 'facebooks', 'favorites'));
 		}
 		return view('auth.login');
 	}

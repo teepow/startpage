@@ -62,12 +62,22 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	/**
-	 * A user may have one facebook
+	 * A user may have many facebook
 	 * 
-	 * @return HasOne
+	 * @return HasMany
 	 */
 	public function facebooks()
 	{
 		return $this->hasMany('App\Facebook');
+	}
+
+	/**
+	 * A user may have many favorites
+	 * 
+	 * @return HasMany
+	 */
+	public function favorites()
+	{
+		return $this->hasMany('App\Favorite');
 	}
 }

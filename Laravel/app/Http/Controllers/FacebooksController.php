@@ -49,23 +49,19 @@ class FacebooksController extends Controller {
 	/**
 	 * Check if user has facebooks and delete if they do
 	 * 
-	 * @return bool
 	 */
 	public function delete()
 	{
 		if (Auth::user()->facebooks()->count() > 0)
 		{
-			return DB::table('facebooks')->delete(Auth::user()->user_id);
+			DB::table('facebooks')->delete(Auth::user()->user_id);
 		}
-		return false;
 	}
 
 	/**
 	 * Store new posts in facebooks
 	 * 
 	 * @param  $graphObject
-	 *  
-	 * @return bool
 	 */
 	public function store($graphObject)
 	{
@@ -74,7 +70,7 @@ class FacebooksController extends Controller {
 			$facebook = new Facebook;
 			$facebook->post = $data->message;
 
-			return Auth::user()->facebooks()->save($facebook);
+			Auth::user()->facebooks()->save($facebook);
 		}
 	}
 

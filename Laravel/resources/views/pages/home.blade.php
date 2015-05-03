@@ -51,4 +51,15 @@
 	@endif
 	<a href="{{ url($loginUrl) }}">Update</a>
 </div>
+
+@if($favorites->first())
+	<ul class="list-inline">
+		@foreach($favorites as $favorite)
+			<li class="edit-favorites-list-items">
+				<a href="{!! $favorite->link !!}">{!! $favorite->name !!}</a>
+			</li>
+		@endforeach
+	</ul>
+@endif
+
 @stop
