@@ -1,0 +1,10 @@
+@mixin after($width, $color, $margin, $height: 3px) {
+	&:after {
+		content: '';
+		display: block;
+		width: $width;
+		height: $height;
+		background: $color;
+		margin: $margin;
+	}
+}

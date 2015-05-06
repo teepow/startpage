@@ -19,24 +19,36 @@ class AuthenticateUser {
 		$this->auth = $auth;
 	}
 
-	public function execute($hasCode)
+	public function execute($hasCode, $provider)
 	{
-		if (!$hasCode) return $this->getAuthorizationFirst();
+		if (!$hasCode) return $this->getAuthorizationFirst($provider);
 
-		$user = $this->users->findByUsernameOrCreate($this->getFacebookUser());
+		$user = $this->users->findByUsernameOrCreate($this->getProviderUser($provider));
+
+		if(!$user) return redirect('/')->withErrors(['That email is already in use by another user']);
 
 		$this->auth->login($user, true);
 
 		return redirect('/');
 	}
 
-	private function getAuthorizationFirst()
+	/**
+	 * Redirect to OAuth provider
+	 * 
+	 * @return 
+	 */
+	private function getAuthorizationFirst($provider)
 	{
-		return $this->socialite->driver('facebook')->redirect();
+		return $this->socialite->driver($provider)->redirect();
 	}
 
-	private function getFacebookUser()
+	/**
+	 * Recieve callback from provider
+	 * 
+	 * @return
+	 */
+	private function getProviderUser($provider)
 	{
-		return $this->socialite->driver('facebook')->user();
+		return $this->socialite->driver($provider)->user();
 	}
 }

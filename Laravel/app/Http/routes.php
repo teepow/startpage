@@ -35,14 +35,19 @@ Route::controllers([
 ]);
 
 /**
+ * Facebook API
+ */
+Route::get('facebook/update', 'FacebooksController@update');
+
+/**
  * Facebook Login
  */
 Route::get('login/facebook', 'Auth\AuthController@facebookLogin');
 
 /**
- * Facebook API
+ * Google Login
  */
-Route::get('facebook/update', 'FacebooksController@update');
+Route::get('login/google', 'Auth\AuthController@googleLogin');
 
 /**
  * Favorites

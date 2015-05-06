@@ -47,9 +47,32 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
+	/**
+	 * Handle Facebook login request
+	 * 
+	 * @param  AuthenticateUser $authenticateUser 
+	 * 
+	 * @param  Request          $request          
+	 * 
+	 * @return 
+	 */
 	public function facebookLogin(AuthenticateUser $authenticateUser, Request $request)
 	{
-		return $authenticateUser->execute($request->has('code'));
+		return $authenticateUser->execute($request->has('code'), 'facebook');
+	}
+
+	/**
+	 * Handle Google login request
+	 * 
+	 * @param  AuthenticateUser $authenticateUser 
+	 * 
+	 * @param  Request          $request          
+	 * 
+	 * @return 
+	 */
+	public function googleLogin(AuthenticateUser $authenticateUser, Request $request)
+	{
+		return $authenticateUser->execute($request->has('code'), 'google');
 	}
 
 }

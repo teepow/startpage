@@ -23,7 +23,7 @@ class FacebooksController extends Controller {
 		session_start();
 		FacebookSession::setDefaultApplication(env('FACEBOOK_CLIENT_ID'), env('FACEBOOK_CLIENT_SECRET'));
 
-		$helper = new FacebookRedirectLoginHelper('http://startpage.app/facebook/update');
+		$helper = new FacebookRedirectLoginHelper('http://startpage.com/facebook/update');
 
 		try {
 			$session = $helper->getSessionFromRedirect();

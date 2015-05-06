@@ -6,8 +6,13 @@ class UserRepository {
 	
 	public function findByUsernameOrCreate($userData)
 	{
-		return User::firstOrCreate([
-			'email' => $userData->email,
-		]);
+		try {
+			return User::firstOrCreate([
+				'name' => $userData->name,
+				'email' => $userData->email,
+			]);
+		} catch (\Illuminate\Database\QueryException $e) {
+			 return false;
+		}
 	}
 }

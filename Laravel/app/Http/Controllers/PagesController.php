@@ -55,7 +55,7 @@ class PagesController extends Controller {
 		session_start();
 		FacebookSession::setDefaultApplication(env('FACEBOOK_CLIENT_ID'), env('FACEBOOK_CLIENT_SECRET'));
 		
-		$helper = new FacebookRedirectLoginHelper('http://startpage.app/facebook/update');
+		$helper = new FacebookRedirectLoginHelper('http://startpage.com/facebook/update');
 		$loginUrl = $helper->getLoginUrl();
 
 		return $loginUrl . 'user_posts';
