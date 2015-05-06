@@ -62,7 +62,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	/**
-	 * A user may have many facebook
+	 * A user may have many facebooks
 	 * 
 	 * @return HasMany
 	 */

@@ -2,20 +2,29 @@
 
 @section('content')
 
-@if($images->first())
-	<ul class="list-inline">
-		@foreach($images as $image)
-			<li class="edit-photos-list-items">{!! HTML::image("$image->image", null, ['class' => 'img-responsive']) !!}
-				{!! Form::open(['data-remote', 'method' => 'PATCH', 'url' => 'photos/' . $image->id]) !!}
+<section class="edit-photos">
 
-					{!! Form::checkbox("$image->id", "$image->id") !!}
-					{!! Form::submit('Remove') !!}
+	<h1 class="page-heading">Remove Photo</h1>
 
-				{!! Form::close() !!}
-			</li>
-		@endforeach
-	</ul>
-@endif
+	@if($images->first())
+		<ul class="list-inline">
+			@foreach($images as $image)
+				<li>{!! HTML::image("$image->image", null, ['class' => 'img-responsive']) !!}
+					{!! Form::open(['data-remote', 'method' => 'PATCH', 'url' => 'photos/' . $image->id]) !!}
+
+						{!! Form::submit('Remove') !!}
+
+					{!! Form::close() !!}
+				</li>
+			@endforeach
+		</ul>
+	@else 
+		<p>You have no photos to show</p>
+	@endif
+
+</section>
+
+<section class="photos-form">
 
 	<h1 class="page-heading">Add New Photo</h1>
 
@@ -33,5 +42,7 @@
 	{!! Form::close() !!}
 
 	@include('errors.list')
+
+</section>
 
 @endsection

@@ -26,7 +26,9 @@ class QuotesController extends Controller {
 	 */
 	public function edit()
 	{
-		return view('quotes/edit');
+		$quotes = (Auth::user()->quotes) ? Auth::user()->quotes : "";
+
+		return view('quotes/edit', compact('quotes'));
 	}
 
 	/**

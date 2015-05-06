@@ -7,7 +7,7 @@ class UserRepository {
 	public function findByUsernameOrCreate($userData)
 	{
 		return User::firstOrCreate([
-			'email' => $userData->email
+			'email' => $userData->email,
 		]);
 	}
 }

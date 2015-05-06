@@ -2,16 +2,30 @@
 
 @section('content')
 
+<section class="edit-quote">
+
+	<h1 class="page-heading">Edit Quote</h1>
+
 	{!! Form::open(['action' => 'QuotesController@store']) !!}
 
 		<div class="form-group">
 			{!! Form::label('quote', 'Add or Change Quote') !!}
-			{!! Form::textarea('quote', null, ['class' => 'form-control']) !!}
+
+			@if (is_object($quotes))
+				{!! Form::textarea('quote', "$quotes->quote", ['class' => 'form-control' ]) !!}
+			@else
+				{!! Form::textarea('quote', null, ['class' => 'form-control']) !!}
+			@endif
 		</div>
 
 		<div class="form-group">
 			{!! Form::label('author', 'Add or Change Author') !!}
-			{!! Form::text('author', null, ['class' => 'form-control']) !!}
+
+			@if (is_object($quotes))
+				{!! Form::text('author', "$quotes->author", ['class' => 'form-control' ]) !!}
+			@else
+				{!! Form::text('author', null, ['class' => 'form-control']) !!}
+			@endif
 		</div>
 
 		<div class="form-group">
@@ -25,6 +39,6 @@
 
 	{!! Form::close() !!}
 
-
+</section>
 
 @endsection

@@ -1,7 +1,10 @@
 @extends('app')
 
 @section('content')
-	<h1 class="page-heading">Create New ToDo</h1>
+
+<section class="edit-todos">
+	
+	<h1 class="page-heading">Create New Todo</h1>
 
 	{!! Form::open(['action' => 'ToDoController@store']) !!}
 
@@ -17,4 +20,7 @@
 	{!! Form::close() !!}
 
 	@include('errors.list')
+
+</section>
+
 @endsection

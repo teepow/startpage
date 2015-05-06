@@ -2,21 +2,31 @@
 
 @section('content')
 
-@if($favorites->first())
-	<ul class="list-inline">
-		@foreach($favorites as $favorite)
-			<li class="edit-favorites-list-items">
-				<a href="{!! $favorite->link !!}">{!! $favorite->name !!}</a>
-				{!! Form::open(['data-remote', 'method' => 'PATCH', 'url' => 'favorites/' . $favorite->id]) !!}
+<section class="edit-favorites">
 
-					{!! Form::checkbox("$favorite->id", "$favorite->id") !!}
-					{!! Form::submit('Remove') !!}
+	<h1 class="page-heading">Remove Favorite</h1>
 
-				{!! Form::close() !!}
-			</li>
-		@endforeach
-	</ul>
-@endif
+	@if($favorites->first())
+		<ul class="list-inline">
+			@foreach($favorites as $favorite)
+				<li class="edit-favorites-list-items">
+					<a href="{!! $favorite->link !!}">{!! $favorite->name !!}</a>
+					{!! Form::open(['data-remote', 'method' => 'PATCH', 'url' => 'favorites/' . $favorite->id]) !!}
+					
+						{!! Form::submit('Remove') !!}
+
+					{!! Form::close() !!}
+				</li>
+			@endforeach
+		</ul>
+	@else 
+		<p>You have no favorites to show</p>
+	@endif
+		
+
+</section>
+
+<section class="favorites-form">
 
 	<h1 class="page-heading">Add New Favorite</h1>
 
@@ -39,5 +49,7 @@
 	{!! Form::close() !!}
 
 	@include('errors.list')
+
+</section>
 
 @endsection

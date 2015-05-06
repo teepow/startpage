@@ -1,4 +1,6 @@
-$background-color: #E6E6FA;
-$home-border: darken($background-color, 5%);
-$underline: darken($background-color, 30%);
-$button-color: complement($background-color);
+$base-color: #E6E6FA;
+$dark: darken($base-color, 5%);
+$darker: darken($base-color, 30%);
+$light: lighten($base-color, 1%);
+$complement: complement($base-color);
+$nav-color: invert($base-color);

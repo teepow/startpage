@@ -1,50 +1,223 @@
 @import 'partials/colors';
+@import 'partials/mixins';
 
-.page-heading {
-	text-align: center;
-	
-	&:after {
-		content: '';
-		display: block;
-		width: 70px;
-		height: 3px;
-		background: $underline;
-		margin: 10px auto 0;
+body {
+	background-color: $light;
+}
+/**
+ * Navigation
+ */
+.navbar {
+	background-color: $nav-color;
+	color: #FFFFFF;
+	height: 50px;
+	border: none;
+
+	.navbar-collapse li a {
+		color: #FFFFFF;
+
+		&:hover {
+			color: #FFFFFF;
+
+			@include after(75%, $dark, 0 auto, 1px);
+		}
 	}
 }
 
-.home-content {
-	height: 1000px;
-	background-color: $background-color;
-	border: 1px solid $home-border;
+.dropdown {
+
+	ul {
+		background-color: $nav-color;
+
+		li a {
+			text-align: center;
+
+			&:hover {
+				color: #FFFFFF;
+				background-color: $nav-color;
+
+				@include after(75%, $dark, 0 auto, 1px);
+			}
+		}
+	}
+}
+
+
+
+/**
+ * Page Headings
+ */
+.page-heading {
 	text-align: center;
-	height: 1000px;
+
+	@include after(70px, $darker, 10px auto 0);
 }
 
-.list-inline {
+/**
+ * Home Page
+ */
+.row {
 	text-align: center;
+	overflow: hidden; 
+	background-color: $base-color;
+	margin-bottom: 20px;
+	border: 1px solid $dark;
+
+	.images {
+		
+		@include after(80%, $darker, 0 auto 50px);
+
+		li {
+			margin: 30px;
+		}
+	}
+
+	.todos {
+		border: 1px solid $dark;
+		border-top: none;
+		margin-bottom: -99999px;
+    	padding-bottom: 99999px;
+    	vertical-align: top;
+
+		form {
+			float: right;
+		}
+
+		.btn-lg {
+			display: block;
+			width: 100px;
+			margin: 0 auto 20px;
+			background-color: $complement;
+		}
+	}
+
+	.quote {
+		@extend .todos;
+
+		blockquote {
+			background-color: $complement;
+			font-size: 2em;
+		}
+	}
+
+	.facebook {
+		@extend .todos;
+
+		a {
+			font-size: 1.5em;
+			margin-bottom: 200px;
+		}
+	}
+
+	.list-group-item {
+		margin-top: 10px;
+		text-align: left;
+		background-color: $complement;
+	}
 }
 
-.todo-button {
-	margin-top: 20px;
+.favorites {
+	font-size: 3em;
+		
+		@include after(50%, $darker, 0 auto 50px);
+
+	.list-inline {
+		text-align: center;
+
+		a {
+			color: 
+		}
+	}
+
+	p {
+		@extend .list-inline;
+	}
 }
 
-.todo-list-items {
-	margin-top: 10px;
-	text-align: left;
+/**
+ * Edit Photos
+ */
+.edit-photos {
+
+
+	p {
+		margin: 20px 0 20px;
+		color: red;
+		font-size: 3em;
+		text-align: center;
+	}
+
+	ul {
+		text-align: center;
+		margin-top: 60px;
+
+		li img {
+			margin-right: 0 30px;
+		}
+	
+		form {
+			height: 30px;
+			border: 1px solid $dark;
+			border-top: none;
+			padding-bottom: 45px;
+			background-color: $base-color;
+			margin-bottom: 10px;
+
+			input {
+				margin-top: 10px;
+			}
+		}
+	}
 }
 
-.content-removed-form {
-	float: right;
+.photos-form {
+	text-align: center;
+
+	input[type="file"] {
+		margin: 10px auto;
+		padding-left: 175px;
+	}
 }
 
-.todo-list-submit {
-	float: right;
+/**
+ * Edit Favorites
+ */
+.edit-favorites {
+	@extend .edit-photos;
+	text-align: center;
+
+	a, p {
+		font-size: 3em;
+		margin-bottom: 0px;
+		display: inline-block;
+		min-width: 125px;
+	}
+
+	a {
+		background-color: $complement;
+		border: 1px solid $dark;
+		padding: 15px;
+	}
 }
 
-.btn-lg {
-	display: block;
-	width: 100px;
-	margin: 0 auto 20px;
-	background-color: $button-color;
+/**
+ * Login and Register
+ */
+.container-fluid .row {
+	background-color: $light;
+	border: none;
+}
+
+/**
+ * Errors
+ */
+.alert-danger {
+	list-style-type: none;
+}
+
+/**
+ * Facebook button
+ */
+.facebook-button {
+	margin-right: 75px;
 }

@@ -54,7 +54,7 @@
 						</div>
 						<div class="col-md-6 col-md-offset-4">
 							<div class="form-group">
-								<a class="btn btn-primary" href="{{ url('/login/facebook') }}">Login With Facebook</a>
+								<a class="btn btn-primary facebook-button" href="{{ url('/login/facebook') }}">Login With Facebook</a>
 							</div>
 						</div>
 					</form>

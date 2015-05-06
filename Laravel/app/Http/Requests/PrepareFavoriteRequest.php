@@ -22,8 +22,8 @@ class PrepareFavoriteRequest extends Request {
 	public function rules()
 	{
 		return [
-			'name' => 'required',
-			'link' => 'required',
+			'name' => 'required|max:15',
+			'link' => 'required|url',
 		];
 	}
 

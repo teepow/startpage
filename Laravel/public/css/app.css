@@ -1,3 +1,44 @@
+body {
+  background-color: #eaeafb; }
+
+/**
+ * Navigation
+ */
+.navbar {
+  background-color: #191905;
+  color: #FFFFFF;
+  height: 50px;
+  border: none; }
+  .navbar .navbar-collapse li a {
+    color: #FFFFFF; }
+    .navbar .navbar-collapse li a:hover {
+      color: #FFFFFF; }
+      .navbar .navbar-collapse li a:hover:after {
+        content: '';
+        display: block;
+        width: 75%;
+        height: 1px;
+        background: #d1d1f6;
+        margin: 0 auto; }
+
+.dropdown ul {
+  background-color: #191905; }
+  .dropdown ul li a {
+    text-align: center; }
+    .dropdown ul li a:hover {
+      color: #FFFFFF;
+      background-color: #191905; }
+      .dropdown ul li a:hover:after {
+        content: '';
+        display: block;
+        width: 75%;
+        height: 1px;
+        background: #d1d1f6;
+        margin: 0 auto; }
+
+/**
+ * Page Headings
+ */
 .page-heading {
   text-align: center; }
   .page-heading:after {
@@ -8,34 +49,122 @@
     background: #6767e0;
     margin: 10px auto 0; }
 
-.home-content {
-  height: 1000px;
-  background-color: #E6E6FA;
-  border: 1px solid #d1d1f6;
+/**
+ * Home Page
+ */
+.row {
   text-align: center;
-  height: 1000px; }
+  overflow: hidden;
+  background-color: #E6E6FA;
+  margin-bottom: 20px;
+  border: 1px solid #d1d1f6; }
+  .row .images:after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 3px;
+    background: #6767e0;
+    margin: 0 auto 50px; }
+  .row .images li {
+    margin: 30px; }
+  .row .todos, .row .quote, .row .facebook {
+    border: 1px solid #d1d1f6;
+    border-top: none;
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+    vertical-align: top; }
+    .row .todos form, .row .quote form, .row .facebook form {
+      float: right; }
+    .row .todos .btn-lg, .row .quote .btn-lg, .row .facebook .btn-lg {
+      display: block;
+      width: 100px;
+      margin: 0 auto 20px;
+      background-color: #fafae6; }
+  .row .quote blockquote {
+    background-color: #fafae6;
+    font-size: 2em; }
+  .row .facebook a {
+    font-size: 1.5em;
+    margin-bottom: 200px; }
+  .row .list-group-item {
+    margin-top: 10px;
+    text-align: left;
+    background-color: #fafae6; }
 
-.list-inline {
+.favorites {
+  font-size: 3em; }
+  .favorites:after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: #6767e0;
+    margin: 0 auto 50px; }
+  .favorites .list-inline, .favorites p {
+    text-align: center; }
+
+/**
+ * Edit Photos
+ */
+.edit-photos p, .edit-favorites p {
+  margin: 20px 0 20px;
+  color: red;
+  font-size: 3em;
   text-align: center; }
+.edit-photos ul, .edit-favorites ul {
+  text-align: center;
+  margin-top: 60px; }
+  .edit-photos ul li img, .edit-favorites ul li img {
+    margin-right: 0 30px; }
+  .edit-photos ul form, .edit-favorites ul form {
+    height: 30px;
+    border: 1px solid #d1d1f6;
+    border-top: none;
+    padding-bottom: 45px;
+    background-color: #E6E6FA;
+    margin-bottom: 10px; }
+    .edit-photos ul form input, .edit-favorites ul form input {
+      margin-top: 10px; }
 
-.todo-button {
-  margin-top: 20px; }
+.photos-form {
+  text-align: center; }
+  .photos-form input[type="file"] {
+    margin: 10px auto;
+    padding-left: 175px; }
 
-.todo-list-items {
-  margin-top: 10px;
-  text-align: left; }
+/**
+ * Edit Favorites
+ */
+.edit-favorites {
+  text-align: center; }
+  .edit-favorites a, .edit-favorites p {
+    font-size: 3em;
+    margin-bottom: 0px;
+    display: inline-block;
+    min-width: 125px; }
+  .edit-favorites a {
+    background-color: #fafae6;
+    border: 1px solid #d1d1f6;
+    padding: 15px; }
 
-.content-removed-form {
-  float: right; }
+/**
+ * Login and Register
+ */
+.container-fluid .row {
+  background-color: #eaeafb;
+  border: none; }
 
-.todo-list-submit {
-  float: right; }
+/**
+ * Errors
+ */
+.alert-danger {
+  list-style-type: none; }
 
-.btn-lg {
-  display: block;
-  width: 100px;
-  margin: 0 auto 20px;
-  background-color: #fafae6; }
+/**
+ * Facebook button
+ */
+.facebook-button {
+  margin-right: 75px; }
 
 
 /*# sourceMappingURL=app.css.map */
