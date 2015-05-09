@@ -6,11 +6,11 @@
 
 	<h1 class="page-heading">Remove Favorite</h1>
 
-	@if($favorites->first())
+	@if(count($favorites))
 		<ul class="list-inline">
 			@foreach($favorites as $favorite)
 				<li class="edit-favorites-list-items">
-					<a href="{!! $favorite->link !!}">{!! $favorite->name !!}</a>
+					<a href="{{ $favorite->link }}">{{ $favorite->name }}</a>
 					{!! Form::open(['data-remote', 'method' => 'PATCH', 'url' => 'favorites/' . $favorite->id]) !!}
 					
 						{!! Form::submit('Remove') !!}

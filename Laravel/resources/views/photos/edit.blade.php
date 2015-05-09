@@ -6,7 +6,7 @@
 
 	<h1 class="page-heading">Remove Photo</h1>
 
-	@if($images->first())
+	@if(count($images))
 		<ul class="list-inline">
 			@foreach($images as $image)
 				<li>{!! HTML::image("$image->image", null, ['class' => 'img-responsive']) !!}

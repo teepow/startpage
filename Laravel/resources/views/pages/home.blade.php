@@ -24,7 +24,7 @@
 
 	<div class="col-lg-3 todos">	
 		<h1 class="page-heading">Todo List</h1>
-		@if($todos->first())
+		@if(count($todos))
 			<ul class="list-group">
 			 	@foreach($todos as $todo)
 					<li class="list-group-item">
@@ -44,7 +44,7 @@
 		<h1 class="page-heading">Quote</h1>
 		<blockquote>
 			@foreach($quote as $line)
-				{!! $line . '<br>' !!}
+				{{ $line }}  <br>
 				@if($author)
 					<cite>{{ '-' . $author }}</cite>
 				@endif
@@ -59,11 +59,11 @@
 		@if(($facebooks))
 			<ul class="list-group">
 				@if(!is_object($facebooks))
-					{!! $facebooks !!}
+					{{ $facebooks }}
 				@else
 					@foreach($facebooks as $facebook)
 						<li class="list-group-item">
-							{!! $facebook->post !!}
+							{{ $facebook->post }}
 						</li>
 					@endforeach
 				@endif
