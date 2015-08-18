@@ -16,7 +16,7 @@ class FacebooksController extends Controller {
 	/**
 	 * Update facebooks table
 	 * 
-	 * @return [type] [description]
+	 * @return redirect /
 	 */
 	public function update()
 	{
@@ -25,12 +25,17 @@ class FacebooksController extends Controller {
 
 		$helper = new FacebookRedirectLoginHelper('http://startpage.com/facebook/update');
 
-		try {
+		try 
+		{
 			$session = $helper->getSessionFromRedirect();
 			$request = new FacebookRequest($session, 'GET', '/me/posts');
-		} catch(FacebookRequestException $e) {
+		} 
+		catch(FacebookRequestException $e) 
+		{
 			return Redirect::to('/'); 
-		} catch(\Exception $e) {
+		}
+		 catch(\Exception $e) 
+		{
 			return Redirect::to('/'); 
 		}
 		
@@ -67,10 +72,13 @@ class FacebooksController extends Controller {
 	{
 		foreach($graphObject as $data)
 		{
-			$facebook = new Facebook;
-			$facebook->post = $data->message;
+			if(isset($data->message))
+			{
+				$facebook = new Facebook;
+				$facebook->post = $data->message;
 
-			Auth::user()->facebooks()->save($facebook);
+				Auth::user()->facebooks()->save($facebook);
+			}
 		}
 	}
 

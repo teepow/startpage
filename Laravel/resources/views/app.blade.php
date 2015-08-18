@@ -8,6 +8,7 @@
 
 	
 	<link href="{{ asset('/css/all.css') }}" rel="stylesheet">
+	<link rel="icon" href="{{{ asset('star.png') }}}" type="image/png" sizes="16x16">
 </head>
 <body>
 	@include('partials.nav')
