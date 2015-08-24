@@ -29,11 +29,6 @@
 		</div>
 
 		<div class="form-group">
-			{!! Form::checkbox('random') !!}
-			{!! Form::label('Use random quote (Unix fortune)') !!}
-		</div>
-
-		<div class="form-group">
 			{!! Form::submit('Add Quote', ['class' => 'btn btn-primary form-control']) !!}
 		</div>
 
